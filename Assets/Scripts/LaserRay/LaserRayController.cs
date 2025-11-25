@@ -37,7 +37,7 @@ public class LaserRayController : MonoBehaviour
 		{
 			if (Physics.Raycast(turret1.position, turret2.position - turret1.position, out hit))
 			{
-				// hit.collider NO es null, seguro para usar CompareTag
+				
 				if (hit.collider.CompareTag("Player") && safeZoneScript.SafeZone == false)
 				{
 					gameManager.LifeLost();

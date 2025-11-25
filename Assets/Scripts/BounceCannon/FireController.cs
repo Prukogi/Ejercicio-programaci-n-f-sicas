@@ -5,7 +5,7 @@ public class FireController : MonoBehaviour
 {
 	
     public Transform barrelTransform;
-    public Transform pointerTransform;
+    public Transform proyectileSpawn;
     public GameObject proyectile;
     
     [SerializeField] private float firePower;
@@ -38,10 +38,10 @@ public class FireController : MonoBehaviour
 		if (OpenFire)
 		{
 			OpenFire = false;
-			GameObject newProyectile = Instantiate(proyectile, pointerTransform.position, pointerTransform.rotation);
+			GameObject newProyectile = Instantiate(proyectile, proyectileSpawn.position, proyectileSpawn.rotation);
 
 			Rigidbody rb = newProyectile.GetComponent<Rigidbody>();
-			rb.AddForce(pointerTransform.up * firePower, ForceMode.Impulse);
+			rb.AddForce(proyectileSpawn.up * firePower, ForceMode.Impulse);
 			rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, 40f);
 
 			print("Opening fire!");
